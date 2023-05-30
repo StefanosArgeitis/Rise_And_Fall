@@ -12,6 +12,7 @@ public class FP_CAM_CONTROLLER : MonoBehaviour
 
     float rotationX;
     float rotationY;
+    [SerializeField] public LightBulbMini Mini_game;
 
     private void Start() {
 
@@ -20,7 +21,11 @@ public class FP_CAM_CONTROLLER : MonoBehaviour
         
     }
 
-    private void Update() {       
+    private void Update() {
+
+        if (Mini_game.pause_char){
+            return;
+        }       
 
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;

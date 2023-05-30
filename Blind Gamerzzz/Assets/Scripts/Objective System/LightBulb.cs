@@ -9,7 +9,7 @@ public class LightBulb : MonoBehaviour, IInteractable
 {
     public Inventory inv;
     public GameObject minigame_UI;
-   public TextMeshProUGUI no_comp;
+    public TextMeshProUGUI no_comp;
     public float no_comp_time = 2f;
     public string interactionPrompt => throw new System.NotImplementedException();
 

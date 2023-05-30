@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LightBulbMini : MonoBehaviour
 {
@@ -26,13 +27,22 @@ public class LightBulbMini : MonoBehaviour
     [SerializeField] private float contr_pull_power = 0.01f;
     [SerializeField] private float contr_gravity = 0.005f;
     [SerializeField] private float contr_progress_degrade = 0.1f;
+    [SerializeField] private float mini_off_time = 3f;
 
     [SerializeField] Transform progress_bar_container;
+    [SerializeField] private GameObject failed_txt;
+    [SerializeField] private GameObject success_txt;
 
     public bool pause = false;
+    public bool pause_char = false;
 
     [SerializeField] float fail_time = 10f;
-    
+    //public bool can_fail = false;
+
+    private void Start() {
+        pause_char = true;
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -100,6 +110,7 @@ public class LightBulbMini : MonoBehaviour
 
         float min = contr_pos - contr_size / 2;
         float max = contr_pos + contr_size / 2;
+        fail_time -= Time.deltaTime;
 
         if (min < mini_obj_pos && mini_obj_pos < max){
             contr_progress += contr_power * Time.deltaTime;
@@ -107,9 +118,7 @@ public class LightBulbMini : MonoBehaviour
         } else{
             contr_progress -= contr_progress_degrade * Time.deltaTime;
 
-            fail_time -= Time.deltaTime;
-
-            if (fail_time < 0f){
+            if (contr_progress <= 0f && fail_time < 0f){
                 Lose();
             }
 
@@ -125,11 +134,22 @@ public class LightBulbMini : MonoBehaviour
 
     private void Lose(){
         pause = true;
-
+        failed_txt.SetActive(true);
+        StartCoroutine("MinigameOff");
     }
 
     private void Win(){
         pause = true;
+        success_txt.SetActive(true);
+        StartCoroutine("MinigameOff");
+    }
 
+     public IEnumerator MinigameOff(){
+
+        yield return new WaitForSeconds(mini_off_time);
+        pause_char = false;
+        failed_txt.SetActive(false);
+        success_txt.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
