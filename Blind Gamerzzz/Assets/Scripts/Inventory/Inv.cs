@@ -11,10 +11,14 @@ public class Inv : MonoBehaviour
 
    private void OnEnable() {
         ItemsBulb.OnBulbCollected += Add;
+        LightBulb.OnRemoved += Remove;
+        LightBulbMini.OnLightBulbCollected +=Add;
    }
 
    private void OnDisable() {
         ItemsBulb.OnBulbCollected -= Add;
+        LightBulb.OnRemoved -= Remove;
+        LightBulbMini.OnLightBulbCollected -=Add;
    }
 
    public void Add(ItemData itemData){
@@ -48,4 +52,5 @@ public class Inv : MonoBehaviour
             OnInventoryChange?.Invoke(inventory);
         }
     }
+
 }

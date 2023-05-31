@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour
         foreach(Transform childTransform in transform){
             Destroy(childTransform.gameObject);
         }
+
         inventorySlots = new List<InventorySlot>(5);
     }
 
