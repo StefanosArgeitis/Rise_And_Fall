@@ -7,25 +7,51 @@ using TMPro;
 
 public class LightBulb : MonoBehaviour, IInteractable
 {
-    public Inventory inv;
     public GameObject minigame_UI;
-   public TextMeshProUGUI no_comp;
+    public GameObject no_comp;
     public float no_comp_time = 2f;
+    public bool firstBulb = true;
+    public bool secondBulb = false;
+
+    public static event HandleTestCollected OnRemoved;
+    public delegate void HandleTestCollected(ItemData itemData);
+    public ItemData itemData;
+    public ItemData itemData2;
+    public ItemData itemData3;
+    public bool allMatsCollected = false;
+    public bool allMatsPlaced = false;
     public string interactionPrompt => throw new System.NotImplementedException();
 
     public bool Interact(Interactor interactor)
     {
-        if (inv.all_lig_comp){
+        if (secondBulb){
+            return false;
+        }
 
+        if (firstBulb){
+           
             minigame_UI.SetActive(true);
             return true;
-        
-        } else{
-            Debug.Log ("table22");
-            no_comp.enabled = true;
-            StartCoroutine("no_comps");
         }
-        Debug.Log ("table");
+
+        if (allMatsPlaced){
+            minigame_UI.SetActive(true);
+            return true;
+        }
+
+        if (allMatsCollected){
+
+            OnRemoved?.Invoke(itemData);
+            OnRemoved?.Invoke(itemData2);
+            OnRemoved?.Invoke(itemData3);
+            
+            allMatsPlaced = true;
+            return true;
+        
+        }
+
+        noComps();
+
         return false;
         
     }
@@ -34,7 +60,13 @@ public class LightBulb : MonoBehaviour, IInteractable
 
         yield return new WaitForSeconds(no_comp_time);
 
-        no_comp.enabled = false;
+        no_comp.SetActive(false);
 
     }
+    
+    public void noComps(){
+        no_comp.SetActive(true);
+        StartCoroutine("no_comps");
+    }
+   
 }

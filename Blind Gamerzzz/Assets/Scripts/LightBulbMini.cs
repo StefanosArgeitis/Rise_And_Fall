@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LightBulbMini : MonoBehaviour
 {
@@ -26,13 +27,29 @@ public class LightBulbMini : MonoBehaviour
     [SerializeField] private float contr_pull_power = 0.01f;
     [SerializeField] private float contr_gravity = 0.005f;
     [SerializeField] private float contr_progress_degrade = 0.1f;
+    [SerializeField] private float mini_off_time = 3f;
 
     [SerializeField] Transform progress_bar_container;
+    [SerializeField] private GameObject failed_txt;
+    [SerializeField] private GameObject success_txt;
+    [SerializeField] private GameObject invHuD;
+
+    public static event HandleLightBulbCollected OnLightBulbCollected;
+    public delegate void HandleLightBulbCollected(ItemData itemData);
+    public ItemData itemData; 
 
     public bool pause = false;
+    public bool pause_char = false;
+    public LightBulb bulb;
 
     [SerializeField] float fail_time = 10f;
-    
+    //public bool can_fail = false;
+
+    private void Start() {
+        pause_char = true;
+        
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -41,9 +58,10 @@ public class LightBulbMini : MonoBehaviour
             return;
         }
 
-       Mini_Controller();
-       Player_Control_Mini();
-       ProgressCheck();
+        invHuD.SetActive(false);
+        Mini_Controller();
+        Player_Control_Mini();
+        ProgressCheck();
     }
 
 
@@ -100,6 +118,7 @@ public class LightBulbMini : MonoBehaviour
 
         float min = contr_pos - contr_size / 2;
         float max = contr_pos + contr_size / 2;
+        fail_time -= Time.deltaTime;
 
         if (min < mini_obj_pos && mini_obj_pos < max){
             contr_progress += contr_power * Time.deltaTime;
@@ -107,9 +126,7 @@ public class LightBulbMini : MonoBehaviour
         } else{
             contr_progress -= contr_progress_degrade * Time.deltaTime;
 
-            fail_time -= Time.deltaTime;
-
-            if (fail_time < 0f){
+            if (contr_progress <= 0f && fail_time < 0f){
                 Lose();
             }
 
@@ -125,11 +142,55 @@ public class LightBulbMini : MonoBehaviour
 
     private void Lose(){
         pause = true;
-
+        failed_txt.SetActive(true);
+        StartCoroutine("MinigameOff");
     }
 
     private void Win(){
         pause = true;
+        success_txt.SetActive(true);
+        StartCoroutine("MinigameOffWin");
 
+        if (!bulb.firstBulb){
+            Debug.Log("second Bulb");
+            bulb.secondBulb = true;
+        }
+
+        if (bulb.firstBulb){
+            Debug.Log("first Bulb");
+            bulb.firstBulb = false;
+        }
+
+    }
+
+     public IEnumerator MinigameOff(){
+
+        yield return new WaitForSeconds(mini_off_time);
+        ResetMinigame();
+    }
+
+     public IEnumerator MinigameOffWin(){
+
+        yield return new WaitForSeconds(mini_off_time);
+        ResetMinigame();
+        OnLightBulbCollected?.Invoke(itemData);
+    }
+
+    private void ResetMinigame()
+    {
+        mini_obj_pos = 0.5f;
+        mini_obj_des = 0f;
+        mini_obj_timer = 0f;
+        mini_obj_speed = 0f;
+        contr_pos = contr_pos_start;
+        contr_progress = 0f;
+        contr_pull_vel = 0f;
+        fail_time = 10f;
+        pause = false;
+        pause_char = false;
+        failed_txt.SetActive(false);
+        success_txt.SetActive(false);
+        invHuD.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

@@ -11,11 +11,17 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask Interact_Mask;
     [SerializeField] private int numFound;
     [SerializeField] public KeyCode int_key = KeyCode.E;
+    [SerializeField] public LightBulbMini Mini_game;
 
     // Will stop searching after 3 objects
     private readonly Collider[] _colliders = new Collider[3];
 
     private void Update() {
+
+        if (Mini_game.pause_char){
+            E_press_UI.SetActive(false);
+            return;
+        }
 
         numFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionRadius, _colliders, Interact_Mask);
 

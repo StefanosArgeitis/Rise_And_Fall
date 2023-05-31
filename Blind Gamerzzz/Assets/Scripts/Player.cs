@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject stepRayLower;
 
     private Coroutine reduceForce;
+    [SerializeField] public LightBulbMini Mini_game;
 
     void Start()
     {
@@ -61,6 +62,9 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Mini_game.pause_char){
+            return;
+        }
         MovePlayer();
         StepClimb();
         Vector3 speed = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
