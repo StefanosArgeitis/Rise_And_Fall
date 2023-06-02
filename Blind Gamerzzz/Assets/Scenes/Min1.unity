@@ -3973,7 +3973,7 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: a4022851b858e7e4aa7a3d760c964f88, type: 2}
   pause: 0
   pause_char: 0
-  bulb: {fileID: 0}
+  bulb: {fileID: 1984224136}
   fail_time: 10
 --- !u!1 &623553066 stripped
 GameObject:
