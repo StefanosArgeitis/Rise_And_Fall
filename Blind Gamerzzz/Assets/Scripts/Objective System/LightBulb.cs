@@ -28,16 +28,17 @@ public class LightBulb : MonoBehaviour, IInteractable
             return false;
         }
 
+        if (allMatsPlaced){
+            minigame_UI.SetActive(true);
+            return true;
+        }
+        
         if (firstBulb){
            
             minigame_UI.SetActive(true);
             return true;
         }
 
-        if (allMatsPlaced){
-            minigame_UI.SetActive(true);
-            return true;
-        }
 
         if (allMatsCollected){
 
