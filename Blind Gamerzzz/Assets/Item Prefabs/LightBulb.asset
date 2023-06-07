@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LightBulb
   m_EditorClassIdentifier: 
   displayName: Light Bulb
-  icon: {fileID: 21300000, guid: f1886b98bec943f42bf5696ab4e934a0, type: 3}
+  icon: {fileID: 21300000, guid: cd71b5b11f576944f8ee9262f8de9c14, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Wire
   m_EditorClassIdentifier: 
   displayName: Wire
-  icon: {fileID: 21300000, guid: e60f47da412953649b503f69b4aeec2f, type: 3}
+  icon: {fileID: 21300000, guid: 3c4aa410398278b469dba04a5b86ee99, type: 3}
