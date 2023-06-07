@@ -20,23 +20,22 @@ public class LightBulb : MonoBehaviour, IInteractable
     public ItemData itemData3;
     public bool allMatsCollected = false;
     public bool allMatsPlaced = false;
-    public string interactionPrompt => throw new System.NotImplementedException();
 
-    public bool Interact(Interactor interactor)
+    void IInteractable.Interact()
     {
-        if (secondBulb){
-            return false;
+       if (secondBulb){
+            return;
         }
 
         if (allMatsPlaced){
             minigame_UI.SetActive(true);
-            return true;
+            return;
         }
         
         if (firstBulb){
            
             minigame_UI.SetActive(true);
-            return true;
+            return;
         }
 
 
@@ -47,14 +46,13 @@ public class LightBulb : MonoBehaviour, IInteractable
             OnRemoved?.Invoke(itemData3);
             
             allMatsPlaced = true;
-            return true;
+            return;
         
         }
 
         noComps();
 
-        return false;
-        
+        return;
     }
 
     public IEnumerator no_comps(){
@@ -69,5 +67,4 @@ public class LightBulb : MonoBehaviour, IInteractable
         no_comp.SetActive(true);
         StartCoroutine("no_comps");
     }
-   
 }

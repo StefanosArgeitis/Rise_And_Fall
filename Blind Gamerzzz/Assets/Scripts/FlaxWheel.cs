@@ -44,10 +44,9 @@ public class FlaxWheel : MonoBehaviour, IInteractable
 
     }
 
-    public bool Interact(Interactor interactor)
+    void IInteractable.Interact()
     {
         p_Transfer();
-        return true;
     }
 
     public void p_Transfer(){

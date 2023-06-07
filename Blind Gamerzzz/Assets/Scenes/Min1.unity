@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -638,7 +638,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38954
+  m_Name: pb_Mesh25930
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -889,6 +889,7 @@ GameObject:
   - component: {fileID: 107013301}
   - component: {fileID: 107013303}
   - component: {fileID: 107013304}
+  - component: {fileID: 107013305}
   m_Layer: 0
   m_Name: Player OBJ
   m_TagString: Untagged
@@ -977,15 +978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2478d324b56651842b50f3425bec2cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionPoint: {fileID: 1123599964}
   E_press_UI: {fileID: 1937212359}
-  interactionRadius: 1
-  Interact_Mask:
-    serializedVersion: 2
-    m_Bits: 128
-  numFound: 0
-  int_key: 101
   Mini_game: {fileID: 590762136}
+  inter: {fileID: 107013305}
 --- !u!114 &107013304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1009,6 +1004,22 @@ MonoBehaviour:
   Component_Obj_UI2: {fileID: 1835451082}
   Component_Obj_UI3: {fileID: 1799248073}
   bulb: {fileID: 1984224136}
+--- !u!114 &107013305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107013299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691406b99961c7645acd462bb8cd4cdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 963194228}
+  range: 2.5
+  int_key: 101
+  interactable_obj: 0
 --- !u!1 &121836781
 GameObject:
   m_ObjectHideFlags: 0
@@ -6565,7 +6576,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38934
+  m_Name: pb_Mesh25910
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7054,8 +7065,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: -874037503667884591, guid: fdb86e7645cd6ff4180804f7d0dbb4c1, type: 3}
   m_PrefabInstance: {fileID: 1585002536}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1313449886
-BoxCollider:
+--- !u!64 &1313449890
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7064,9 +7075,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.013151565, y: 0.0035292434, z: 0.02}
-  m_Center: {x: 0.0000000034924665, y: 0.00068324024, z: -0.00022412557}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1818487441076576030, guid: fdb86e7645cd6ff4180804f7d0dbb4c1, type: 3}
 --- !u!1 &1345229886 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4663017224581597546, guid: fdb86e7645cd6ff4180804f7d0dbb4c1, type: 3}
