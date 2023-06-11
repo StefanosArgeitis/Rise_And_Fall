@@ -12,19 +12,16 @@ public class L_Comp1 : MonoBehaviour, IInteractable
     public bool allMatsCollected = false;
     public string interactionPrompt => throw new System.NotImplementedException();
 
-    public bool Interact(Interactor interactor)
+    void IInteractable.Interact()
     {
         if (allMatsCollected){
 
         OnRemoved?.Invoke(itemData);
         OnRemoved?.Invoke(itemData2);
         OnRemoved?.Invoke(itemData3);
-        
-        return true;
+
 
         }
-
-        return false;
     }
 
 }

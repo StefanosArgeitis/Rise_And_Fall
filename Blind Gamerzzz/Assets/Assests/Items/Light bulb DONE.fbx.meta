@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d7ca92d105f64544abaeb1e2ec95b703
+guid: 26d203b839ba29b43a1b7782e8cbcd7c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -8,17 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Emmision
-    second: {fileID: 2100000, guid: 46fa95587a6dd8643bb1b5b8ab0ff581, type: 2}
+    second: {fileID: 2100000, guid: d53333665f9286c4dac96d07a110c060, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Glass
-    second: {fileID: 2100000, guid: 375aa7cfa10da1543ad6f9ef7f066e0c, type: 2}
+    second: {fileID: 2100000, guid: 4c6e9f2361c0e6f4781b45ad5fb70d85, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.002
-    second: {fileID: 2100000, guid: 89a86e229fc1cf74094423c46687a394, type: 2}
+    second: {fileID: 2100000, guid: 853db1bd3fc2b4a4c911d2acf9d8fbd0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -29,7 +29,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
-    removeConstantScaleCurves: 0
+    removeConstantScaleCurves: 1
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -59,7 +59,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
-    nodeNameCollisionStrategy: 0
+    nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -114,7 +114,7 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

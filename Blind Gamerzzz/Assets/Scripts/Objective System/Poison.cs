@@ -9,11 +9,10 @@ public class Poison : MonoBehaviour, IInteractable
     //public GameObject test;
     public string interactionPrompt => throw new System.NotImplementedException();
 
-    public bool Interact(Interactor interactor)
+    void IInteractable.Interact()
     {
         inv.hasList = true;
         o_list.gameObject.SetActive(false);
         //test.SetActive(true);
-        return true;
     }
 }

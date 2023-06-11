@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fdb86e7645cd6ff4180804f7d0dbb4c1
+guid: 0b290e492fb945a488d77742e2225cb4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,83 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Black
-    second: {fileID: 2100000, guid: 2c9b69ca863f81d45b70b9545985517e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cardboard
-    second: {fileID: 2100000, guid: 56eb45a0107aca9439683bb300b96d15, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Emmission
-    second: {fileID: 2100000, guid: d53333665f9286c4dac96d07a110c060, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Floor
-    second: {fileID: 2100000, guid: ab3af1fe3b2fdc54eba7e99a5b53d068, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Glass
-    second: {fileID: 2100000, guid: 375aa7cfa10da1543ad6f9ef7f066e0c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Gray
-    second: {fileID: 2100000, guid: 6e37a2ce95f3ec44ca1aab9166b56f04, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: GrayMetalic
-    second: {fileID: 2100000, guid: 4b306adeac877d245afb8c17eb8be6ab, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Legs
-    second: {fileID: 2100000, guid: d803810bbaf9aeb4b8599a6416b65c69, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material
+      name: Material.002
     second: {fileID: 2100000, guid: 853db1bd3fc2b4a4c911d2acf9d8fbd0, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal
-    second: {fileID: 2100000, guid: ad1f2a5f55ce8d8489e6dc453ff0969a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wall
-    second: {fileID: 2100000, guid: 249071e80b22c8e43ae60bea91ecee0a, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wall.001
-    second: {fileID: 2100000, guid: 9e646e1ffa9a8464f8e95ddcd53bd197, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wall.002
-    second: {fileID: 2100000, guid: bb68482212a69924697c087182d71487, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: White
-    second: {fileID: 2100000, guid: 0befa05fe00c0d64daf25c391a7288b9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood Planks
-    second: {fileID: 2100000, guid: f23208f54cf340649b34ecd24623b060, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood table
-    second: {fileID: 2100000, guid: 7553a01e422b3a744aae71dc054c5b06, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
