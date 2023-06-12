@@ -6,6 +6,7 @@ public class CarMatsAnimation : MonoBehaviour, IInteractable
 {
     public Animator animator;
     public ElectroMagnet magnet;
+    public AnimationTracker tracker;
     public void AnimatePart(){
         magnet.RemoveElectroMagnet();
         animator.SetTrigger("Changes");
@@ -14,5 +15,10 @@ public class CarMatsAnimation : MonoBehaviour, IInteractable
     void IInteractable.Interact()
     {
         AnimatePart();
+    }
+
+    public void Tracking(){
+        tracker.Animation1Played();
+        Debug.Log("first anim");
     }
 }

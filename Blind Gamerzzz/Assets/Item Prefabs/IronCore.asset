@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: IronCore
   m_EditorClassIdentifier: 
   displayName: Iron Core
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f810e6689578b4244a57c3a2938103de, type: 3}

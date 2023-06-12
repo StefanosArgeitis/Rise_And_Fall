@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ElectroMagnet
   m_EditorClassIdentifier: 
   displayName: Magnet
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d80f3ace2455f5e41b91682562166772, type: 3}
