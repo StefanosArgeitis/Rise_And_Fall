@@ -10,7 +10,8 @@ public class Inventory : MonoBehaviour
 
 
     [SerializeField] private GameObject List_UI;
-    [SerializeField] private GameObject Work1_Arrow;
+    [SerializeField] private GameObject firstMini;
+    [SerializeField] private GameObject secondMini;
     public Text Component_Obj_UI;
     public Text Component_Obj_UI2;
     public Text Component_Obj_UI3;
@@ -54,6 +55,10 @@ public class Inventory : MonoBehaviour
         Component_Obj_UI2.color = new Color (Component_Obj_UI.color.r, Component_Obj_UI.color.g, Component_Obj_UI.color.b, 0f);
         Component_Obj_UI3.color = new Color (Component_Obj_UI.color.r, Component_Obj_UI.color.g, Component_Obj_UI.color.b, 0f);
         first_task = true;
+        
+        firstMini.SetActive(false);
+        secondMini.SetActive(true);
+
     }
 
 

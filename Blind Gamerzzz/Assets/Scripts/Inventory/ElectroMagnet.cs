@@ -13,14 +13,18 @@ public class ElectroMagnet : MonoBehaviour, IInteractable
     public delegate void HandleTestCollected(ItemData itemData);
     public ItemData itemData;
     public ItemData itemData2;
+    public ItemData itemData3;
+    public ItemData itemData4;
     public bool allMatsCollected = false;
     public bool allMatsPlaced = false;
     public SwitchCamera switchCamera;
     public Inventory inv;
     public ElectroMini mini;
+    public InventoryChecker invCheck;
 
     void IInteractable.Interact()
     {
+        invCheck.CheckInventory();
 
        if (electroMagnet){
             return;
@@ -47,6 +51,14 @@ public class ElectroMagnet : MonoBehaviour, IInteractable
 
         return;
     }
+
+    public void RemoveElectroMagnet(){
+        OnRemoved?.Invoke(itemData3);
+    }
+    public void RemoveLightBulb(){
+        OnRemoved?.Invoke(itemData4);
+    }
+
 
     public IEnumerator no_comps(){
 
