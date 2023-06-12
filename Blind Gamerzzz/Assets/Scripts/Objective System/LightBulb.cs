@@ -20,21 +20,32 @@ public class LightBulb : MonoBehaviour, IInteractable
     public ItemData itemData3;
     public bool allMatsCollected = false;
     public bool allMatsPlaced = false;
+    public SwitchCamera switchCamera;
+    public Inventory inv;
+    public LightBulbMini mini;
+    [SerializeField] private GameObject no_list;
 
     void IInteractable.Interact()
     {
+        if (!inv.hasList){
+            no_list.SetActive(true);
+            StartCoroutine("no_comps");
+            return;
+        }
+
        if (secondBulb){
             return;
         }
 
         if (allMatsPlaced){
-            minigame_UI.SetActive(true);
+            switchCamera.ChangeCam();
+            Invoke(nameof(StartMini), 3);
             return;
         }
         
         if (firstBulb){
-           
-            minigame_UI.SetActive(true);
+            switchCamera.ChangeCam();
+            Invoke(nameof(StartMini), 3);
             return;
         }
 
@@ -44,7 +55,7 @@ public class LightBulb : MonoBehaviour, IInteractable
             OnRemoved?.Invoke(itemData);
             OnRemoved?.Invoke(itemData2);
             OnRemoved?.Invoke(itemData3);
-            
+            mini.lightbulb_comps.SetActive(true);
             allMatsPlaced = true;
             return;
         
@@ -60,11 +71,16 @@ public class LightBulb : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(no_comp_time);
 
         no_comp.SetActive(false);
+        no_list.SetActive(false);
 
     }
     
     public void noComps(){
         no_comp.SetActive(true);
         StartCoroutine("no_comps");
+    }
+
+    public void StartMini(){
+        minigame_UI.SetActive(true);
     }
 }

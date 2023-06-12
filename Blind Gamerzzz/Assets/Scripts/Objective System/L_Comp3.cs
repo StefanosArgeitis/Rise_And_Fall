@@ -10,7 +10,7 @@ public class L_Comp3 : MonoBehaviour, IInteractable
 
     void IInteractable.Interact()
     {
-        inv.hasLig_3 = true;
+        //inv.hasLig_3 = true;
         L_Comp_3.gameObject.SetActive(false);
     }
 }

@@ -6,9 +6,6 @@ using UnityEngine.UI;
 public class Inventory : MonoBehaviour
 {
     public bool hasList = false;
-    public bool hasLig_1 = false;
-    public bool hasLig_2 = false;
-    public bool hasLig_3 = false; 
     public bool all_lig_comp = false;
 
 
@@ -18,12 +15,23 @@ public class Inventory : MonoBehaviour
     public Text Component_Obj_UI2;
     public Text Component_Obj_UI3;
     public LightBulb bulb;
+    public bool first_task = false;
 
     // Update is called once per frame
     void Update()
     {
+        if (!first_task){
+            ObjectivesLightBulb();
+        }
+
+        
+    }
+
+    void ObjectivesLightBulb(){
+
         if (bulb.secondBulb){
             Component_Obj_UI3.color = new Color (Component_Obj_UI.color.r, Component_Obj_UI.color.g, Component_Obj_UI.color.b, 0.3f);
+            Invoke(nameof(firsObjectives), 5);
         }
 
         if (hasList){
@@ -40,4 +48,13 @@ public class Inventory : MonoBehaviour
             all_lig_comp = true;
         }
     }
+
+    void firsObjectives(){
+        Component_Obj_UI.color = new Color (Component_Obj_UI.color.r, Component_Obj_UI.color.g, Component_Obj_UI.color.b, 0f);
+        Component_Obj_UI2.color = new Color (Component_Obj_UI.color.r, Component_Obj_UI.color.g, Component_Obj_UI.color.b, 0f);
+        Component_Obj_UI3.color = new Color (Component_Obj_UI.color.r, Component_Obj_UI.color.g, Component_Obj_UI.color.b, 0f);
+        first_task = true;
+    }
+
+
 }

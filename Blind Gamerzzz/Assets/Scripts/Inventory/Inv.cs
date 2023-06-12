@@ -12,13 +12,17 @@ public class Inv : MonoBehaviour
    private void OnEnable() {
         ItemsBulb.OnBulbCollected += Add;
         LightBulb.OnRemoved += Remove;
+        ElectroMagnet.OnRemoved += Remove;
         LightBulbMini.OnLightBulbCollected +=Add;
+        ElectroMini.OnElectroCollected += Add;
    }
 
    private void OnDisable() {
         ItemsBulb.OnBulbCollected -= Add;
         LightBulb.OnRemoved -= Remove;
+        ElectroMagnet.OnRemoved -= Remove;
         LightBulbMini.OnLightBulbCollected -=Add;
+        ElectroMini.OnElectroCollected -= Add;
    }
 
    public void Add(ItemData itemData){
