@@ -11,6 +11,7 @@ public class LightBulbMini : MonoBehaviour
    
     public float mini_obj_pos;
     public float mini_obj_des;
+    public Narrator nar;
 
     public float mini_obj_timer;
     [SerializeField] private float timer_multiplier = 3f;
@@ -168,11 +169,13 @@ public class LightBulbMini : MonoBehaviour
         if (!bulb.firstBulb){
             Debug.Log("second Bulb");
             bulb.secondBulb = true;
+            nar.PlayElectroMag();
         }
 
         if (bulb.firstBulb){
             Debug.Log("first Bulb");
             bulb.firstBulb = false;
+            nar.PlayLightComps();
         }
 
     }

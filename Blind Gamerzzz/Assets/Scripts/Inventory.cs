@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour
     public bool second_task = false;
     public bool final_task = false;
     public bool no_more_task = false;
+    public Narrator nar;
 
     // Update is called once per frame
     void Update()
@@ -74,6 +75,7 @@ public class Inventory : MonoBehaviour
     void ObjectivesElectro(){
         if (magnet.allMatsCollected){
             Component_Obj_UI4.color = new Color (Component_Obj_UI.color.r, Component_Obj_UI.color.g, Component_Obj_UI.color.b, 0.3f);
+            nar.PlayAllMagComps();
             Debug.Log("WORKS");
         }
 
@@ -110,6 +112,7 @@ public class Inventory : MonoBehaviour
 
     void finalObjective(){
         Component_Obj_UI6.color = new Color (Component_Obj_UI.color.r, Component_Obj_UI.color.g, Component_Obj_UI.color.b, 1f);
+        nar.PlayMagDone();
         car_Light.SetActive(true);
         car_Light1.SetActive(true);
         car_magnet.SetActive(true);

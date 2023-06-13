@@ -7,6 +7,7 @@ public class InventoryChecker : MonoBehaviour
     public Inv inventoryScript; // Reference to the Inv script
     public LightBulb comps;
     public ElectroMagnet magnet;
+    public Narrator nar;
 
     public void CheckInventory()
     {
@@ -62,6 +63,7 @@ public class InventoryChecker : MonoBehaviour
         if (containsAllStrings){
             Debug.Log("The inventory contains all target strings.");
             comps.allMatsCollected = true;
+            nar.PlayAllLightComps();
 
         }
         else{
