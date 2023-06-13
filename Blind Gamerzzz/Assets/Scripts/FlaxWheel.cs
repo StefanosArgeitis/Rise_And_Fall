@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class FlaxWheel : MonoBehaviour, IInteractable
+public class FlaxWheel : MonoBehaviour
 {
     public Image blackScreen;
     private bool fadeIn;
@@ -42,11 +42,6 @@ public class FlaxWheel : MonoBehaviour, IInteractable
             }
         }
 
-    }
-
-    void IInteractable.Interact()
-    {
-        p_Transfer();
     }
 
     public void p_Transfer(){

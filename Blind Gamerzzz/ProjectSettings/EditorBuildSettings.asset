@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Mennnu.unity
     guid: c3777c565fc14bd41aa0192a56c6e91f
   - enabled: 1
+    path: Assets/Scenes/start.unity
+    guid: 63bfee1838f5132439d7f180103f1587
+  - enabled: 1
     path: Assets/Scenes/Min1.unity
     guid: 3c0ba7df4b97df444afd46060bd5437f
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: abc03393242647649a8e6b31d93b6d60
   m_configObjects: {}

@@ -11,6 +11,7 @@ public class LightBulbMini : MonoBehaviour
    
     public float mini_obj_pos;
     public float mini_obj_des;
+    public Narrator nar;
 
     public float mini_obj_timer;
     [SerializeField] private float timer_multiplier = 3f;
@@ -41,15 +42,13 @@ public class LightBulbMini : MonoBehaviour
     public bool pause = false;
     public bool pause_char = false;
     public LightBulb bulb;
-
+    public SwitchCamera switchCamera;
+    public GameObject smoke;
+    public GameObject lightbulb;
+    public GameObject lightbulb_comps;
     [SerializeField] float fail_time = 10f;
+    public bool starting = true;
     //public bool can_fail = false;
-
-    private void Start() {
-        pause_char = true;
-        
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -58,10 +57,20 @@ public class LightBulbMini : MonoBehaviour
             return;
         }
 
+        if (starting){
+            miniStart();
+            starting = false;
+        }
+
         invHuD.SetActive(false);
         Mini_Controller();
         Player_Control_Mini();
         ProgressCheck();
+    }
+
+    public void miniStart(){
+        pause_char = true;
+        smoke.SetActive(true);
     }
 
 
@@ -143,22 +152,30 @@ public class LightBulbMini : MonoBehaviour
     private void Lose(){
         pause = true;
         failed_txt.SetActive(true);
+        switchCamera.ChangeCam();
+        smoke.SetActive(false);
         StartCoroutine("MinigameOff");
     }
 
     private void Win(){
         pause = true;
+        lightbulb_comps.SetActive(false);
+        smoke.SetActive(false);
+        lightbulb.SetActive(true);
         success_txt.SetActive(true);
+        switchCamera.ChangeCam();
         StartCoroutine("MinigameOffWin");
 
         if (!bulb.firstBulb){
             Debug.Log("second Bulb");
             bulb.secondBulb = true;
+            nar.PlayElectroMag();
         }
 
         if (bulb.firstBulb){
             Debug.Log("first Bulb");
             bulb.firstBulb = false;
+            nar.PlayLightComps();
         }
 
     }
@@ -167,6 +184,7 @@ public class LightBulbMini : MonoBehaviour
 
         yield return new WaitForSeconds(mini_off_time);
         ResetMinigame();
+        smoke.SetActive(false);
     }
 
      public IEnumerator MinigameOffWin(){
@@ -174,6 +192,7 @@ public class LightBulbMini : MonoBehaviour
         yield return new WaitForSeconds(mini_off_time);
         ResetMinigame();
         OnLightBulbCollected?.Invoke(itemData);
+        lightbulb.SetActive(false);
     }
 
     private void ResetMinigame()
@@ -186,6 +205,7 @@ public class LightBulbMini : MonoBehaviour
         contr_progress = 0f;
         contr_pull_vel = 0f;
         fail_time = 10f;
+        starting = true;
         pause = false;
         pause_char = false;
         failed_txt.SetActive(false);
@@ -193,4 +213,5 @@ public class LightBulbMini : MonoBehaviour
         invHuD.SetActive(true);
         gameObject.SetActive(false);
     }
+
 }
